@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "301609182847",
+    "firebase_url": "https://tarpstudentlogin.firebaseio.com",
+    "project_id": "tarpstudentlogin",
+    "storage_bucket": "tarpstudentlogin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:301609182847:android:b5eb0109a6633eb3",
+        "android_client_info": {
+          "package_name": "com.example.naman.tarp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "301609182847-kh46pcgufrmljknar829bc0b8bgiddhg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.naman.tarp",
+            "certificate_hash": "f2229c7dacfa2de740eb0aad12f98d6d86708a00"
+          }
+        },
+        {
+          "client_id": "301609182847-alsh95c5jf7vklnrt1jfdjafndov14v8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlE8hLHV2mUaIP55BZEAxOva3PDW2mBqk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "301609182847-alsh95c5jf7vklnrt1jfdjafndov14v8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
