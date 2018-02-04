@@ -14,8 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.13"
+        android:text="Faculty Signup"
         android:textAlignment="center"
-        android:text="Student Signup"
         android:textAppearance="@android:style/TextAppearance.Material.Display2" />
 
     <EditText
@@ -27,12 +27,12 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/regno"
+        android:id="@+id/empid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.03"
         android:ems="10"
-        android:hint="Enter registration number"
+        android:hint="Enter faculty ID"
         android:inputType="textPersonName" />
 
     <EditText
