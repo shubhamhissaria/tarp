@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.13"
-        android:text="Enter Your Details To Complete Your Registration" />
+        android:text="Signup" />
 
     <EditText
         android:id="@+id/name"
@@ -25,40 +25,31 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/phno"
+        android:id="@+id/regno"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.03"
         android:ems="10"
-        android:hint="Enter phone number"
-        android:inputType="phone" />
-
-    <EditText
-        android:id="@+id/accnno"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.03"
-        android:ems="10"
-        android:hint="Enter choice of account"
+        android:hint="Enter registration number"
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/pin"
+        android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.03"
         android:ems="10"
-        android:hint="Enter pin of your choice"
-        android:inputType="numberPassword" />
+        android:hint="Enter password of your choice"
+        android:inputType="textPassword" />
 
     <EditText
-        android:id="@+id/pin2"
+        android:id="@+id/password2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.03"
         android:ems="10"
-        android:hint="Re-enter pin"
-        android:inputType="numberPassword" />
+        android:hint="Re-enter password"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/submit"
