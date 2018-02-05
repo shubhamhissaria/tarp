@@ -25,25 +25,25 @@ public class LoginActivity extends AppCompatActivity {
     public Button btnStudSignup, btnFacSignup, btnLogin, btnReset;
 
     DatabaseReference data;
-    String user, passw,regno,password;
+    String user, passw,regnum,passwor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        inputregno = (EditText) findViewById(R.id.regno);
-        inputPassword = (EditText) findViewById(R.id.password);
+        inputregno = (EditText) findViewById(R.id.regnum);
+        inputPassword = (EditText) findViewById(R.id.passwo);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         btnStudSignup = (Button) findViewById(R.id.btn_studsignup);
         btnFacSignup = (Button) findViewById(R.id.btn_facsignup);
         btnLogin = (Button) findViewById(R.id.btn_login);
         btnReset = (Button) findViewById(R.id.btn_reset_password);
 
-        regno = inputregno.getText().toString().trim();
-        password = inputPassword.getText().toString().trim();
+        regnum = inputregno.getText().toString().trim();
+        passwor = inputPassword.getText().toString().trim();
 
-        data = FirebaseDatabase.getInstance().getReference().child(regno);
+        data = FirebaseDatabase.getInstance().getReference().child(regnum);
         //Toast.makeText(getApplicationContext(), password, Toast.LENGTH_SHORT).show();
         //Toast.makeText(getApplicationContext(), data.child("name").toString(), Toast.LENGTH_SHORT).show();
 
@@ -70,38 +70,38 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (TextUtils.isEmpty(regno)) {
+                if (regnum == null) {
                     Toast.makeText(getApplicationContext(), "Enter registration number!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (TextUtils.isEmpty(password)) {
+                else if (passwor == null) {
                     Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                progressBar.setVisibility(View.VISIBLE);
-                data.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        user = dataSnapshot.child("regno").getValue(String.class);
-                        //Toast.makeText(getApplicationContext(), user, Toast.LENGTH_SHORT).show();
-                        passw = dataSnapshot.child("pass").getValue(String.class);
-                        if(regno.equals(user) && password.equals(passw))
-                        {
+                else {
+                    progressBar.setVisibility(View.VISIBLE);
+                    data.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            user = dataSnapshot.child("regno").getValue(String.class);
+                            Toast.makeText(getApplicationContext(), user, Toast.LENGTH_SHORT).show();
+                            passw = dataSnapshot.child("pass").getValue(String.class);
+                            if (regnum.equals(user) && passwor.equals(passw)) {
 //                            Intent intent = new Intent(LoginActivity.this, DisplayHome.class);
 //                            intent.putExtra("accno", accnumber);
 //                            startActivity(intent);
 //                            finish();
-                            Toast.makeText(LoginActivity.this, getString(R.string.auth_success), Toast.LENGTH_LONG).show();
+                                Toast.makeText(LoginActivity.this, getString(R.string.auth_success), Toast.LENGTH_LONG).show();
+                            } else
+                                Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                         }
-                        else
-                            Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
-                    }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Toast.makeText(LoginActivity.this, getString(R.string.database_error), Toast.LENGTH_LONG).show();
-                    }
-                });
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                            Toast.makeText(LoginActivity.this, getString(R.string.database_error), Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
 //
 //
             }
