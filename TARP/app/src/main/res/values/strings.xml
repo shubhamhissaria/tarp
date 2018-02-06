@@ -19,4 +19,7 @@
     <string name="btn_link_to_register2">Not a registered faculty? Get registered now!</string>
     <string name="btn_link_to_login">Already registered. Login Me!</string>
     <string name="btn_forgot_password">Forgot password? Click here!</string>
+    <string name="btn_find_faculty">Find faculty</string>
+    <string name="btn_book_slot">Schedule meeting</string>
+    <string name="btn_logout">Logout</string>
 </resources>

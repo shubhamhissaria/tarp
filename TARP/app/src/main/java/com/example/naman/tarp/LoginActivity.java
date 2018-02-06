@@ -21,7 +21,6 @@ import com.google.firebase.database.ValueEventListener;
 public class LoginActivity extends AppCompatActivity {
 
     public EditText inputregno, inputPassword;
-    public ProgressBar progressBar;
     public Button btnStudSignup, btnFacSignup, btnLogin, btnReset;
 
     DatabaseReference data;
@@ -34,7 +33,6 @@ public class LoginActivity extends AppCompatActivity {
 
         inputregno = (EditText) findViewById(R.id.regnum);
         inputPassword = (EditText) findViewById(R.id.passwo);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
         btnStudSignup = (Button) findViewById(R.id.btn_studsignup);
         btnFacSignup = (Button) findViewById(R.id.btn_facsignup);
         btnLogin = (Button) findViewById(R.id.btn_login);
@@ -80,12 +78,12 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
                 else {
-                    progressBar.setVisibility(View.VISIBLE);
                     data.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             user = dataSnapshot.child("regno").getValue(String.class);
                             passw = dataSnapshot.child("pass").getValue(String.class);
+                            //Toast.makeText(LoginActivity.this, passw, Toast.LENGTH_LONG).show();
                             if (regnumb.equals(user) && passwor.equals(passw)) {
                                 Toast.makeText(LoginActivity.this, getString(R.string.auth_success), Toast.LENGTH_LONG).show();
                                 if(user.length()==5)//redirect to faculty login

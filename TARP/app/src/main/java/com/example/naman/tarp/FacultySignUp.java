@@ -27,7 +27,6 @@ public class FacultySignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faculty_sign_up);
-
         mDatabase = FirebaseDatabase.getInstance().getReference();
         nam= (EditText) findViewById(R.id.name);
         empid= (EditText) findViewById(R.id.regno);
