@@ -87,11 +87,21 @@ public class LoginActivity extends AppCompatActivity {
                             user = dataSnapshot.child("regno").getValue(String.class);
                             passw = dataSnapshot.child("pass").getValue(String.class);
                             if (regnumb.equals(user) && passwor.equals(passw)) {
-//                            Intent intent = new Intent(LoginActivity.this, DisplayHome.class);
-//                            intent.putExtra("accno", accnumber);
-//                            startActivity(intent);
-//                            finish();
                                 Toast.makeText(LoginActivity.this, getString(R.string.auth_success), Toast.LENGTH_LONG).show();
+                                if(user.length()==5)//redirect to faculty login
+                                {
+                                    Intent intent = new Intent(LoginActivity.this, Landing.class);
+                                    intent.putExtra("regno", regnumb);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                                else if(user.length()==9)//redirect to student login
+                                {
+                                    Intent intent = new Intent(LoginActivity.this, Landing.class);
+                                    intent.putExtra("regno", regnumb);
+                                    startActivity(intent);
+                                    finish();
+                                }
                             } else
                                 Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                         }
