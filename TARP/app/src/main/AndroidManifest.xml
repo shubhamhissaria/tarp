@@ -31,7 +31,9 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".Landing"></activity>
+        <activity android:name=".Landing" />
+        <activity android:name=".FindFaculty" />
+        <activity android:name=".BookSlot"></activity>
     </application>
 
 </manifest>

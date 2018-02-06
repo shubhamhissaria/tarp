@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context="com.example.naman.tarp.StudentSignUp"
-    android:orientation="vertical"
     android:gravity="center"
     android:weightSum="1">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/Heading"
@@ -15,6 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.13"
         android:text="Faculty Signup"
+        android:layout_marginBottom="20dp"
         android:textAlignment="center"
         android:textAppearance="@android:style/TextAppearance.Material.Display2" />
 
@@ -25,6 +30,14 @@
         android:ems="10"
         android:hint="Enter your name"
         android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter your email"
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/empid"
@@ -53,6 +66,22 @@
         android:hint="Re-enter password"
         android:inputType="textPassword" />
 
+    <EditText
+        android:id="@+id/phno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter your phone number"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/cabin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter your cabin number"
+        android:inputType="text" />
+
     <Button
         android:id="@+id/submit"
         style="@style/Widget.AppCompat.Button.Colored"
@@ -62,3 +91,4 @@
         android:text="Submit" />
 
 </LinearLayout>
+</ScrollView>

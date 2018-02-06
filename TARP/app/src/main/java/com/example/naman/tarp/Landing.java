@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 public class Landing extends AppCompatActivity {
 
-    public Button findfa,books;
+    public Button findfa,books,logout;
     String regnumb;
     public void setaccountnumber(String x){
         regnumb=x;
@@ -24,13 +24,14 @@ public class Landing extends AppCompatActivity {
         } else {
             setaccountnumber(getIntent().getStringExtra("accno"));
         }
-        Toast.makeText(Landing.this, regnumb, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(Landing.this, regnumb, Toast.LENGTH_SHORT).show();
         findfa = (Button) findViewById(R.id.btn_findfac);
         books = (Button) findViewById(R.id.btn_book);
+        logout = (Button) findViewById(R.id.btn_logout);
         findfa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Landing.this, Landing.class);//change to find faculty
+                Intent intent = new Intent(Landing.this, FindFaculty.class);//change to find faculty
                 intent.putExtra("regno", regnumb);
                 startActivity(intent);
                 finish();
@@ -39,16 +40,16 @@ public class Landing extends AppCompatActivity {
         books.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Landing.this, Landing.class);//change to book schedule
+                Intent intent = new Intent(Landing.this, BookSlot.class);//change to book schedule
                 intent.putExtra("regno", regnumb);
                 startActivity(intent);
                 finish();
             }
         });
-        books.setOnClickListener(new View.OnClickListener() {
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Landing.this, LoginActivity.class);//change to book schedule
+                Intent intent = new Intent(Landing.this, LoginActivity.class);//change to login page
                 startActivity(intent);
                 finish();
             }
