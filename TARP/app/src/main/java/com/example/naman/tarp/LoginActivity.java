@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     public Button btnStudSignup, btnFacSignup, btnLogin, btnReset;
 
     DatabaseReference data;
-    String user, passw,regnum,passwor;
+    String user, passw,regnumb,passwor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +39,6 @@ public class LoginActivity extends AppCompatActivity {
         btnFacSignup = (Button) findViewById(R.id.btn_facsignup);
         btnLogin = (Button) findViewById(R.id.btn_login);
         btnReset = (Button) findViewById(R.id.btn_reset_password);
-
-        regnum = inputregno.getText().toString().trim();
-        passwor = inputPassword.getText().toString().trim();
-
-        data = FirebaseDatabase.getInstance().getReference().child(regnum);
         //Toast.makeText(getApplicationContext(), password, Toast.LENGTH_SHORT).show();
         //Toast.makeText(getApplicationContext(), data.child("name").toString(), Toast.LENGTH_SHORT).show();
 
@@ -70,7 +65,13 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (regnum == null) {
+                regnumb = inputregno.getText().toString();
+                passwor = inputPassword.getText().toString().trim();
+
+                data = FirebaseDatabase.getInstance().getReference().child(regnumb);
+                inputregno.setText(regnumb);
+                //Toast.makeText(getApplicationContext(), regnumb, Toast.LENGTH_SHORT).show();
+                if (regnumb == null) {
                     Toast.makeText(getApplicationContext(), "Enter registration number!", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -84,9 +85,8 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             user = dataSnapshot.child("regno").getValue(String.class);
-                            Toast.makeText(getApplicationContext(), user, Toast.LENGTH_SHORT).show();
                             passw = dataSnapshot.child("pass").getValue(String.class);
-                            if (regnum.equals(user) && passwor.equals(passw)) {
+                            if (regnumb.equals(user) && passwor.equals(passw)) {
 //                            Intent intent = new Intent(LoginActivity.this, DisplayHome.class);
 //                            intent.putExtra("accno", accnumber);
 //                            startActivity(intent);
