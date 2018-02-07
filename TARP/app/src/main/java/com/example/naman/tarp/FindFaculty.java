@@ -24,18 +24,11 @@ import java.util.List;
 
 public class FindFaculty extends AppCompatActivity {
 
-    public class SpecimenDTO implements Serializable
+    public class Teacherdetails implements Serializable
     {
         public String nameof,email,empid,phno,cab,pass;
-        public SpecimenDTO(){
-            this.nameof="error";
-            this.email="error";
-            this.empid="error";
-            this.phno="error";
-            this.cab="error";
-            this.pass="error";
-        }
-        public SpecimenDTO(String a, String b, String c, String d, String e, String f)
+        public Teacherdetails(){ }
+        public Teacherdetails(String a, String b, String c, String d, String e, String f)
         {
             this.nameof=a;
             this.email=b;
@@ -43,6 +36,30 @@ public class FindFaculty extends AppCompatActivity {
             this.phno=d;
             this.cab=e;
             this.pass=f;
+        }
+        public String getNameof()
+        {
+            return nameof;
+        }
+        public String getEmail()
+        {
+            return nameof;
+        }
+        public String getEmpid()
+        {
+            return nameof;
+        }
+        public String getPhno()
+        {
+            return nameof;
+        }
+        public String getCab()
+        {
+            return nameof;
+        }
+        public String getPass()
+        {
+            return nameof;
         }
     }
     public EditText inputname;
@@ -60,11 +77,11 @@ public class FindFaculty extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Iterable<DataSnapshot> children = dataSnapshot.getChildren();
-                SpecimenDTO specimenDTO = new SpecimenDTO();
+                Teacherdetails details= new Teacherdetails();
                 for(DataSnapshot child: children)
                 {
-                    specimenDTO = child.getValue(SpecimenDTO.class);
-                    if(specimenDTO.nameof.equals(facultynameinput))
+                    details = child.getValue(Teacherdetails.class);
+                    if(details.nameof.equals(facultynameinput))
                     {
                             inputname.setText("huehuehue found you");
                     }
