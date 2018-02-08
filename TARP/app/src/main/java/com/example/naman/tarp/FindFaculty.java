@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -24,73 +25,57 @@ import java.util.List;
 
 public class FindFaculty extends AppCompatActivity {
 
-    public class Teacherdetails implements Serializable
-    {
-        public String nameof,email,empid,phno,cab,pass;
-        public Teacherdetails(){ }
-        public Teacherdetails(String a, String b, String c, String d, String e, String f)
-        {
-            this.nameof=a;
-            this.email=b;
-            this.empid=c;
-            this.phno=d;
-            this.cab=e;
-            this.pass=f;
-        }
-        public String getNameof()
-        {
-            return nameof;
-        }
-        public String getEmail()
-        {
-            return nameof;
-        }
-        public String getEmpid()
-        {
-            return nameof;
-        }
-        public String getPhno()
-        {
-            return nameof;
-        }
-        public String getCab()
-        {
-            return nameof;
-        }
-        public String getPass()
-        {
-            return nameof;
-        }
-    }
     public EditText inputname;
+    public TextView facemail,faccabno, facphno;
     public Button find;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_faculty);
-        FirebaseDatabase database=FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference= database.getReference();
         inputname = (EditText) findViewById(R.id.faculty_name);
         find = (Button) findViewById(R.id.btn_search);
-        final String facultynameinput = inputname.getText().toString();
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        facemail = (TextView) findViewById(R.id.faculty_email);
+        facphno = (TextView) findViewById(R.id.faculty_phno);
+        faccabno = (TextView) findViewById(R.id.faculty_cabno);
+        //Toast.makeText(FindFaculty.this, "Huehuehue", Toast.LENGTH_SHORT).show();
+//        faccabno.setText("Cabin");
+//        facphno.setText("Phone");
+//        facemail.setText("Email");
+        find.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Iterable<DataSnapshot> children = dataSnapshot.getChildren();
-                Teacherdetails details= new Teacherdetails();
-                for(DataSnapshot child: children)
-                {
-                    details = child.getValue(Teacherdetails.class);
-                    if(details.nameof.equals(facultynameinput))
-                    {
-                            inputname.setText("huehuehue found you");
+            public void onClick(View v) {
+                final String facultynameinput = inputname.getText().toString();
+                FirebaseDatabase database=FirebaseDatabase.getInstance();
+                DatabaseReference databaseReference= database.getReference();
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        Iterable<DataSnapshot> children = dataSnapshot.getChildren();
+                        TeacherDetails details = new TeacherDetails();
+                        int flag = 0;
+                        for (DataSnapshot child : children) {
+                            details = child.getValue(TeacherDetails.class);
+                            if (details.getNameof().equals(facultynameinput)) {
+                                String x = "Email: " + details.getEmail();
+                                String y = "Phone Number: " + details.getPhno();
+                                String z = "Cabin Number: " + details.getCab();
+                                facemail.setText(x);
+                                facphno.setText(y);
+                                faccabno.setText(z);
+                                flag = 1;
+                            }
+                        }
+                        if (flag == 0) {
+                            facphno.setText("No such faculty found!");
+                            faccabno.setText("Please check spelling and try again");
+                        }
                     }
-                }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
 
+                    }
+                });
             }
         });
     }

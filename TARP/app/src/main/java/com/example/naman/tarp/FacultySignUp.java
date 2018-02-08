@@ -19,7 +19,7 @@ import java.util.Map;
 
 public class FacultySignUp extends AppCompatActivity {
 
-    public EditText nam,empid,pass,pass2;
+    public EditText nam,empid,pass,pass2,email,phno,cabin;
     public Button b1;
     DatabaseReference mDatabase;
 
@@ -29,6 +29,9 @@ public class FacultySignUp extends AppCompatActivity {
         setContentView(R.layout.activity_faculty_sign_up);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         nam= (EditText) findViewById(R.id.name);
+        email= (EditText) findViewById(R.id.email);
+        phno= (EditText) findViewById(R.id.phno);
+        cabin= (EditText) findViewById(R.id.cabin);
         empid= (EditText) findViewById(R.id.regno);
         pass= (EditText) findViewById(R.id.password);
         pass2= (EditText) findViewById(R.id.password2);
@@ -36,30 +39,41 @@ public class FacultySignUp extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                String name=nam.getText().toString().trim();
+                final String name=nam.getText().toString().trim();
                 final String empno=empid.getText().toString().trim();
                 final String password=pass.getText().toString().trim();
+                final String password2=pass2.getText().toString().trim();
+                final String em=email.getText().toString().trim();
+                final String phone=phno.getText().toString().trim();
+                final String cabinno=cabin.getText().toString().trim();
 
                 Map<String,Object> taskMap = new HashMap<>();
                 taskMap.put("name", name);
                 taskMap.put("regno", empno);
                 taskMap.put("pass", password);
-                mDatabase.child(empno).setValue(taskMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    //mDatabase.updateChildren(taskMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(Task<Void> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(FacultySignUp.this, "Stored", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(FacultySignUp.this, Landing.class);
-                            intent.putExtra("regno", empno);
-                            startActivity(intent);
+                taskMap.put("email", em);
+                taskMap.put("phone", phone);
+                taskMap.put("cabin", cabinno);
+                if(password.equals(password2)) {
+                    mDatabase.child(empno).setValue(taskMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        //mDatabase.updateChildren(taskMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(FacultySignUp.this, "Stored", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(FacultySignUp.this, Landing.class);
+                                intent.putExtra("regno", empno);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(FacultySignUp.this, "Error while storing", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                        else
-                        {
-                            Toast.makeText(FacultySignUp.this, "Error while storing", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                    });
+                }
+                else
+                {
+                    Toast.makeText(FacultySignUp.this, "Both passwords do not match! Check and try again", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
