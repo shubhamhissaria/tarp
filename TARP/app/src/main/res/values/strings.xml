@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TARP</string>
+    <string name="app_name">Find Your Faculty</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
