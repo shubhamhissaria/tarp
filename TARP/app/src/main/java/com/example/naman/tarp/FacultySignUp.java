@@ -19,7 +19,7 @@ import java.util.Map;
 
 public class FacultySignUp extends AppCompatActivity {
 
-    public EditText nam,empid,pass,pass2,email,phno,cabin;
+    public EditText nam,empidno,pass,pass2,email,phno,cabin;
     public Button b1;
     DatabaseReference mDatabase;
 
@@ -27,12 +27,13 @@ public class FacultySignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faculty_sign_up);
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
         nam= (EditText) findViewById(R.id.name);
         email= (EditText) findViewById(R.id.email);
         phno= (EditText) findViewById(R.id.phno);
         cabin= (EditText) findViewById(R.id.cabin);
-        empid= (EditText) findViewById(R.id.regno);
+        empidno= (EditText) findViewById(R.id.empid);
         pass= (EditText) findViewById(R.id.password);
         pass2= (EditText) findViewById(R.id.password2);
         b1=(Button)findViewById(R.id.submit);
@@ -40,29 +41,29 @@ public class FacultySignUp extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 final String name=nam.getText().toString().trim();
-                final String empno=empid.getText().toString().trim();
                 final String password=pass.getText().toString().trim();
                 final String password2=pass2.getText().toString().trim();
                 final String em=email.getText().toString().trim();
                 final String phone=phno.getText().toString().trim();
                 final String cabinno=cabin.getText().toString().trim();
+                final String emnum=empidno.getText().toString().trim();
 
                 Map<String,Object> taskMap = new HashMap<>();
                 taskMap.put("name", name);
-                taskMap.put("regno", empno);
+                taskMap.put("empid", emnum);
                 taskMap.put("pass", password);
                 taskMap.put("email", em);
                 taskMap.put("phone", phone);
                 taskMap.put("cabin", cabinno);
                 if(password.equals(password2)) {
-                    mDatabase.child(empno).setValue(taskMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    mDatabase.child(emnum).setValue(taskMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         //mDatabase.updateChildren(taskMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(FacultySignUp.this, "Stored", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(FacultySignUp.this, Landing.class);
-                                intent.putExtra("regno", empno);
+                                intent.putExtra("empid",emnum);
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(FacultySignUp.this, "Error while storing", Toast.LENGTH_SHORT).show();
