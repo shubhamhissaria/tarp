@@ -8,22 +8,22 @@ public class TeacherDetails {
     public TeacherDetails() {
     }
 
-    public TeacherDetails(String nameof, String email, String empid, String phno, String cab, String pass) {
-        this.nameof = nameof;
+    public TeacherDetails(String nameof, String email, Long empid, Long phno, String cab, String pass) {
+        this.name = nameof;
         this.email = email;
-        this.empid = empid;
-        this.phno = phno;
-        this.cab = cab;
+        this.regno = empid;
+        this.phone = phno;
+        this.cabin = cab;
         this.pass = pass;
     }
 
-    public String nameof,email,empid,phno,cab,pass;
-    public String getNameof() {
-        return nameof;
+    public String name,email,cabin,pass;
+    public Long phone,regno;
+    public String getName() {
+        return name;
     }
-
-    public void setNameof(String nameof) {
-        this.nameof = nameof;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -34,28 +34,28 @@ public class TeacherDetails {
         this.email = email;
     }
 
-    public String getEmpid() {
-        return empid;
+    public Long getRegno() {
+        return regno;
     }
 
-    public void setEmpid(String empid) {
-        this.empid = empid;
+    public void setRegno(Long regno) {
+        this.regno = regno;
     }
 
-    public String getPhno() {
-        return phno;
+    public Long getPhone() {
+        return phone;
     }
 
-    public void setPhno(String phno) {
-        this.phno = phno;
+    public void setPhone(Long phone) {
+        this.phone = phone;
     }
 
-    public String getCab() {
-        return cab;
+    public String getCabin() {
+        return cabin;
     }
 
-    public void setCab(String cab) {
-        this.cab = cab;
+    public void setCabin(String cabin) {
+        this.cabin = cabin;
     }
 
     public String getPass() {

@@ -55,14 +55,17 @@ public class FindFaculty extends AppCompatActivity {
                         int flag = 0;
                         for (DataSnapshot child : children) {
                             details = child.getValue(TeacherDetails.class);
-                            if (details.getNameof().equals(facultynameinput)) {
+                            if (facultynameinput.equals(details.getName()))
+                            {
+                                //Toast.makeText(FindFaculty.this, "hi", Toast.LENGTH_SHORT).show();
                                 String x = "Email: " + details.getEmail();
-                                String y = "Phone Number: " + details.getPhno();
-                                String z = "Cabin Number: " + details.getCab();
+                                String y = "Phone Number: " + details.getPhone().toString();
+                                String z = "Cabin Number: " + details.getCabin();
                                 facemail.setText(x);
                                 facphno.setText(y);
                                 faccabno.setText(z);
                                 flag = 1;
+                                break;
                             }
                         }
                         if (flag == 0) {

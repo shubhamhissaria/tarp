@@ -50,7 +50,7 @@ public class FacultySignUp extends AppCompatActivity {
 
                 Map<String,Object> taskMap = new HashMap<>();
                 taskMap.put("name", name);
-                taskMap.put("empid", emnum);
+                taskMap.put("regno", emnum);
                 taskMap.put("pass", password);
                 taskMap.put("email", em);
                 taskMap.put("phone", phone);
