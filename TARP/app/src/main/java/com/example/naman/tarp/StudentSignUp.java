@@ -51,9 +51,9 @@ public class StudentSignUp extends AppCompatActivity {
                     public void onComplete(Task<Void> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(StudentSignUp.this, "Stored", Toast.LENGTH_SHORT).show();
-//                            Intent intent = new Intent(StudentSignUp.this, DisplayHome.class);
-//                            intent.putExtra("accno", accno);
-//                            startActivity(intent);
+                            Intent intent = new Intent(StudentSignUp.this, Landing.class);
+                            intent.putExtra("regno", regno);
+                            startActivity(intent);
                         }
                         else
                         {

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <TextView
+        android:id="@+id/Heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_weight="0.13"
+        android:text="Student Home"
+        android:textAlignment="center"
+        android:textAppearance="@android:style/TextAppearance.Material.Display2" />
+
+        <Button
+            android:id="@+id/btn_findfac"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="-100dp"
+            android:background="@color/colorAccent"
+            android:text="@string/btn_find_faculty"
+            android:textColor="@android:color/black" />
+
+        <Button
+                android:id="@+id/btn_book"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorAccent"
+                android:text="@string/btn_book_slot"
+                android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorAccent"
+            android:text="@string/btn_logout"
+            android:textColor="@android:color/black" />
+</LinearLayout>

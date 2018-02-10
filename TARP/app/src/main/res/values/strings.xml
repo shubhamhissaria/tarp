@@ -1,22 +1,34 @@
 <resources>
-    <string name="app_name">TARP</string>
+    <string name="app_name">Find Your Faculty</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
     <string name="prompt_regno">Registration Number/ Faculty ID</string>
     <string name="prompt_password">Password</string>
+    <string name="prompt_faculty_name">Faculty name</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
+    <string name="auth_failed">Authentication failed, check your entered details or sign up</string>
+    <string name="auth_success">Authentication success. You are logged in.</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="btn_login">Login</string>
-    <string name="auth_failed">Authentication failed, check your entered details or sign up</string>
-    <string name="auth_success">Authentication success. You are logged in.</string>
     <string name="database_error">Error occurred accessing the datbase. Please check your internet connection</string>
+    <string name="btn_login">Login</string>
     <string name="btn_link_to_register1">Not a registered student? Get registered now!</string>
     <string name="btn_link_to_register2">Not a registered faculty? Get registered now!</string>
     <string name="btn_link_to_login">Already registered. Login Me!</string>
     <string name="btn_forgot_password">Forgot password? Click here!</string>
+    <string name="btn_find_faculty">Find faculty</string>
+    <string name="btn_book_slot">Schedule meeting</string>
+    <string name="btn_logout">Logout</string>
+    <string name="btn_submit">Submit</string>
+    <string name="prompt_cabin">Enter your cabin number</string>
+    <string name="prompt_name">Enter your name</string>
+    <string name="prompt_email">Enter your email</string>
+    <string name="prompt_facid">Enter faculty ID</string>
+    <string name="prompt_new_password">Enter password of your choice</string>
+    <string name="prompt_new_password_2">Re-enter password</string>
+    <string name="prompt_phone">Enter your phone number</string>
 </resources>
