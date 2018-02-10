@@ -62,7 +62,7 @@ public class FacultySignUp extends AppCompatActivity {
                         public void onComplete(Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(FacultySignUp.this, "Stored", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(FacultySignUp.this, Landing.class);
+                                Intent intent = new Intent(FacultySignUp.this, FacultyHome.class);
                                 intent.putExtra("empid",emnum);
                                 startActivity(intent);
                             } else {

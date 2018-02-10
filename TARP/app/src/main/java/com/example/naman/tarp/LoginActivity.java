@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
 
     DatabaseReference data;
     String user, passw,regnumb,passwor;
+    Long user1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,14 +82,15 @@ public class LoginActivity extends AppCompatActivity {
                     data.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            user = dataSnapshot.child("regno").getValue(String.class);
+                            user1 = (Long)dataSnapshot.child("regno").getValue();
+                            user=user1.toString();
                             passw = dataSnapshot.child("pass").getValue(String.class);
                             //Toast.makeText(LoginActivity.this, passw, Toast.LENGTH_LONG).show();
-                            if (regnumb.equals(user) && passwor.equals(passw)) {
+                            if (regnumb.equals(user.toString()) && passwor.equals(passw)) {
                                 Toast.makeText(LoginActivity.this, getString(R.string.auth_success), Toast.LENGTH_LONG).show();
-                                if(user.length()==5)//redirect to faculty login
+                                if(user.length()==4)//redirect to faculty login
                                 {
-                                    Intent intent = new Intent(LoginActivity.this, Landing.class);
+                                    Intent intent = new Intent(LoginActivity.this, FacultyHome.class);
                                     intent.putExtra("regno", regnumb);
                                     startActivity(intent);
                                     finish();
