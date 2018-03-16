@@ -26,17 +26,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StudentSignUp" />
-        <activity android:name=".FacultySignUp" />
+        <activity
+            android:name=".StudentSignUp"
+            android:label="Student Register"/>
+        <activity
+            android:name=".FacultySignUp"
+            android:label="Faculty Register"/>
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".Landing" />
-        <activity android:name=".BookSlot" />
-        <activity android:name=".FindFaculty" />
-        <activity android:name=".ModifySlot" />
-        <activity android:name=".FacultyHome" />
-        <activity android:name=".CheckSchedule"></activity>
+        <activity android:name=".Landing"
+            android:label="Home"/>
+        <activity android:name=".BookSlot"
+            android:label="Book Slot"/>
+        <activity android:name=".FindFaculty"
+            android:label="Search Faculty"/>
+        <activity android:name=".ModifySlot"
+            android:label="Modify Visiting Hours"/>
+        <activity android:name=".FacultyHome"
+            android:label="Faculty Home"/>
+        <activity android:name=".CheckSchedule"
+            android:label="Check Appointments"></activity>
     </application>
 
 </manifest>

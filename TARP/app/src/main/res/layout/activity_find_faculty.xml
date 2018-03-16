@@ -29,12 +29,13 @@
 
     <Button
         android:id="@+id/btn_search"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dip"
         android:background="@color/colorAccent"
         android:text="@string/btn_find_faculty"
-        android:textColor="@android:color/black" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
     <TextView
         android:id="@+id/faculty_email"
@@ -42,23 +43,22 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="20dp"
-        android:textSize="25dp"
-        />
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
     <TextView
         android:id="@+id/faculty_phno"
-        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
         android:layout_height="wrap_content"
-        android:textSize="25dp"/>
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
     <TextView
         android:id="@+id/faculty_cabno"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
-        android:textSize="25dp"/>
+        android:layout_marginTop="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
 </LinearLayout>

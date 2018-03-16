@@ -17,24 +17,25 @@
     android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
 
 
+    <Button
+        android:id="@+id/schedule"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Faculty_home"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="124dp"
+        android:text="Check Schedule"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
-<Button
-    android:id="@+id/schedule"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentStart="true"
-    android:layout_below="@+id/date"
-    android:layout_marginTop="26dp"
-    android:text="Check Schedule"
-    android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
-
-<Button
-    android:id="@+id/modify"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/schedule"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="33dp"
-    android:text="Modify Slots"
-    android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+    <Button
+        android:id="@+id/modify"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/schedule"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:text="Modify Slots"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 </RelativeLayout>

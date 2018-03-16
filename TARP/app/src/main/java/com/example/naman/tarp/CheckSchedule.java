@@ -88,7 +88,10 @@ public class CheckSchedule extends AppCompatActivity implements DatePickerDialog
                                     //Toast.makeText(CheckSchedule.this, schedule.getRegno(), Toast.LENGTH_SHORT).show();
                                     schedule = ds1.getValue(Schedule.class);
                                     String slotnum= ds1.getKey().toString();
-                                    list.add(slotnum+": \n" +schedule.getRegno().toString()+"");
+                                    String registernumber = schedule.getRegno().toString();
+                                    if (registernumber=="00BCE0000")
+                                        registernumber="---";
+                                    list.add(slotnum+": \n" +registernumber+"");
                                 }
                                 listView.setAdapter(adapter);
                     }
