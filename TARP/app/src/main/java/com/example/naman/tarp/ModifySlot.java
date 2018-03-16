@@ -105,7 +105,7 @@ public class ModifySlot extends AppCompatActivity implements DatePickerDialog.On
                     if(a.isSelected==true)
                     {
                         int q=i+1;// demo slot number
-                        mDatabase.child("schedule").child(dateString).child(facid).child(Integer.toString(q)).child("regno").setValue("00BCE0000").addOnCompleteListener(new OnCompleteListener<Void>() {
+                        mDatabase.child("schedule").child(dateString).child(facid).child(Integer.toString(q)).child("regno").setValue("--").addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if(task.isSuccessful()){

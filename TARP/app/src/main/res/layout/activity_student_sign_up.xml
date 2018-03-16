@@ -23,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="sans-serif"
         android:hint="Enter your name"
         android:inputType="textPersonName" />
 
@@ -32,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.03"
         android:ems="10"
+        android:fontFamily="sans-serif"
         android:hint="Enter registration number"
         android:inputType="textPersonName" />
 
@@ -41,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.03"
         android:ems="10"
+        android:fontFamily="sans-serif"
         android:hint="Enter password of your choice"
         android:inputType="textPassword" />
 
@@ -50,6 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.03"
         android:ems="10"
+        android:fontFamily="sans-serif"
         android:hint="Re-enter password"
         android:inputType="textPassword" />
 
