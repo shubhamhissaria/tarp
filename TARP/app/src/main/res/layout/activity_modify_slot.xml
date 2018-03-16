@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.chiragmehta.test.activity_modify_slot">
+    tools:context="com.example.naman.tarp.ModifySlot">
 
     <TextView
         android:id="@+id/display_date"
@@ -43,4 +43,14 @@
         android:layout_alignTop="@+id/date"
         android:layout_marginTop="82dp" />
 
+    <Button
+        android:id="@+id/submitslots"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="19dp"
+        android:text="Submit" />
+
 </RelativeLayout>
+

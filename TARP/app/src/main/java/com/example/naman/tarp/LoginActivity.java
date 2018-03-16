@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
 
     DatabaseReference data;
     String user, passw,regnumb,passwor;
+    Long user1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,29 +82,41 @@ public class LoginActivity extends AppCompatActivity {
                     data.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            user = dataSnapshot.child("regno").getValue(String.class);
-                            passw = dataSnapshot.child("pass").getValue(String.class);
-                            //Toast.makeText(LoginActivity.this, passw, Toast.LENGTH_LONG).show();
-                            if (regnumb.equals(user) && passwor.equals(passw)) {
-                                Toast.makeText(LoginActivity.this, getString(R.string.auth_success), Toast.LENGTH_LONG).show();
-                                if(user.length()==5)//redirect to faculty login
-                                {
-                                    Intent intent = new Intent(LoginActivity.this, Landing.class);
+                            if (regnumb.length() == 4)//redirect to faculty login
+                            {
+                                user1 = (Long) dataSnapshot.child("regno").getValue();
+                                user = user1.toString();
+                                passw = dataSnapshot.child("pass").getValue(String.class);
+                                //Toast.makeText(LoginActivity.this, passw, Toast.LENGTH_LONG).show();
+                                if (regnumb.equals(user.toString()) && passwor.equals(passw)) {
+                                    Toast.makeText(LoginActivity.this, getString(R.string.auth_success), Toast.LENGTH_LONG).show();
+                                    Intent intent = new Intent(LoginActivity.this, FacultyHome.class);
                                     intent.putExtra("regno", regnumb);
                                     startActivity(intent);
                                     finish();
                                 }
-                                else if(user.length()==9)//redirect to student login
-                                {
+                                else {
+                                    Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
+                                }
+                            }
+                            else if (regnumb.length() == 9)//redirect to student login
+                            {
+                                user = dataSnapshot.child("regno").getValue(String.class);
+                                passw = dataSnapshot.child("pass").getValue(String.class);
+                                //Toast.makeText(LoginActivity.this, passw, Toast.LENGTH_LONG).show();
+                                if (regnumb.equals(user.toString()) && passwor.equals(passw)) {
+                                    Toast.makeText(LoginActivity.this, getString(R.string.auth_success), Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(LoginActivity.this, Landing.class);
                                     intent.putExtra("regno", regnumb);
                                     startActivity(intent);
                                     finish();
+                                } else {
+                                    Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                                 }
-                            } else
+                            }
+                            else
                                 Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                         }
-
                         @Override
                         public void onCancelled(DatabaseError databaseError) {
                             Toast.makeText(LoginActivity.this, getString(R.string.database_error), Toast.LENGTH_LONG).show();

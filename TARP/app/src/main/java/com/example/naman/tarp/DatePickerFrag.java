@@ -1,15 +1,16 @@
-package com.example.chiragmehta.test;
+package com.example.naman.tarp;
 
-import android.app.DatePickerDialog;
-import android.app.Dialog;
+import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 
 import java.util.Calendar;
 
+
 /**
- * Created by Chirag Mehta on 05/02/2018.
+ * Created by naman on 10-Feb-18.
  */
 
 public class DatePickerFrag extends DialogFragment {

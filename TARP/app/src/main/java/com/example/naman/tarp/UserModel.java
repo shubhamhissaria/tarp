@@ -1,4 +1,8 @@
-package com.example.chiragmehta.test;
+package com.example.naman.tarp;
+
+/**
+ * Created by naman on 10-Feb-18.
+ */
 
 public class UserModel {
 

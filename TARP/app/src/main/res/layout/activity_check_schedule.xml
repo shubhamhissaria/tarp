@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.chiragmehta.test.activity_check_schedule">
+    tools:context="com.example.naman.tarp.CheckSchedule">
 
     <TextView
         android:id="@+id/Check_schedule"
@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp"
         android:text="Check Schedule"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         tools:layout_editor_absoluteX="117dp"
@@ -37,3 +38,4 @@
         android:text="Select Date"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 </RelativeLayout>
+

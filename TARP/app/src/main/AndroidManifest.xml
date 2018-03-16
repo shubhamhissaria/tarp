@@ -33,7 +33,10 @@
             android:label="@string/title_activity_login" />
         <activity android:name=".Landing" />
         <activity android:name=".BookSlot" />
-        <activity android:name=".FindFaculty"></activity>
+        <activity android:name=".FindFaculty" />
+        <activity android:name=".ModifySlot" />
+        <activity android:name=".FacultyHome" />
+        <activity android:name=".CheckSchedule"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,8 @@
-package com.example.chiragmehta.test;
+package com.example.naman.tarp;
+
+/**
+ * Created by naman on 10-Feb-18.
+ */
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
