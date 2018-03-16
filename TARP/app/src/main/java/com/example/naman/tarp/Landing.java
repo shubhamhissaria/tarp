@@ -22,7 +22,7 @@ public class Landing extends AppCompatActivity {
         if (getIntent().getStringExtra("regno")== null) {
             setaccountnumber("15BCE0000");
         } else {
-            setaccountnumber(getIntent().getStringExtra("accno"));
+            setaccountnumber(getIntent().getStringExtra("regno"));
         }
         //Toast.makeText(Landing.this, regnumb, Toast.LENGTH_SHORT).show();
         findfa = (Button) findViewById(R.id.btn_findfac);
