@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/TARP.iml" filepath="$PROJECT_DIR$/TARP.iml" />
-      <module fileurl="file://F:\VIT\Sem-5\Mobile App Development\Project\tarp\TARP\TARP.iml" filepath="F:\VIT\Sem-5\Mobile App Development\Project\tarp\TARP\TARP.iml" />
       <module fileurl="file://F:\VIT\Sem-5\Mobile App Development\Project\tarp\TARP\app\app.iml" filepath="F:\VIT\Sem-5\Mobile App Development\Project\tarp\TARP\app\app.iml" />
     </modules>
   </component>
