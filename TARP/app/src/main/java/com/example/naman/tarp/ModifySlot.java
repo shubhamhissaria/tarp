@@ -1,6 +1,4 @@
 package com.example.naman.tarp;
-
-
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.DialogFragment;

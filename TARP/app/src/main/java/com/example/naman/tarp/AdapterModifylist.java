@@ -18,7 +18,7 @@ public class AdapterModifylist extends BaseAdapter {
     Activity activity;
     List<UserModel> users;
     LayoutInflater inflater;
-
+    int type=0;
 
     public AdapterModifylist(Activity activity) {
         this.activity = activity;
@@ -69,11 +69,14 @@ public class AdapterModifylist extends BaseAdapter {
 
         holder.tvUserName.setText(model.getUserName());
 
-        if (model.isSelected())
+        if (model.isSelected() && type==0)
             holder.ivCheckBox.setBackgroundResource(R.drawable.checked);
-
-        else
+        else if (!model.isSelected() && type==0)
             holder.ivCheckBox.setBackgroundResource(R.drawable.check);
+        else if (model.isSelected() && type==1)
+            holder.ivCheckBox.setBackgroundResource(R.drawable.radio_checked);
+        else if (!model.isSelected() && type==1)
+            holder.ivCheckBox.setBackgroundResource(R.drawable.radio_check);
 
         return view;
 
