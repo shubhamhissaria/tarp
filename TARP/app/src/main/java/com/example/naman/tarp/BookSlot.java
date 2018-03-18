@@ -140,6 +140,8 @@ public class BookSlot extends AppCompatActivity implements DatePickerDialog.OnDa
                     String regnum = tarpstudentloginnapshot.getKey();
                     if(!regnum.equals("0001"))
                         q=name+" - "+regnum;
+                    else
+                        q=name;
                     if(regnum.length()==4)
                         tarpstudentlogin.add(q);
                 }
