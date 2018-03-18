@@ -2,6 +2,8 @@ package com.example.naman.tarp;
 
 import android.app.DatePickerDialog;
 import android.app.DialogFragment;
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +16,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,8 +36,43 @@ public class BookSlot extends AppCompatActivity implements DatePickerDialog.OnDa
     Spinner tarpstudentloginpinner;
     final List<UserModel> users = new ArrayList<>();
     String regnumb;
+    Button book,button1,button2;
     public void setaccountnumber(String x){
         regnumb=x;
+    }
+    public int timetoslot(String x)
+    {
+        char ch=x.charAt(0);
+        char ch2=x.charAt(1);
+        switch (ch)
+        {
+            case '8':
+                return 1;
+            case '9':
+                return 2;
+            case '1':
+                switch (ch2)
+                {
+                    case '0':
+                        return 3;
+                    case '1':
+                        return 4;
+                    case '2':
+                        return 5;
+                    case '4':
+                        return 6;
+                    case '5':
+                        return 7;
+                    case '6':
+                        return 8;
+                    case '7':
+                        return 9;
+                    default:
+                        return -1;
+                }
+            default:
+                return -1;
+        }
     }
     public String findtiming(int a)
     {
@@ -76,8 +115,9 @@ public class BookSlot extends AppCompatActivity implements DatePickerDialog.OnDa
         final AdapterModifylist adapter = new AdapterModifylist(this, users);
         listView.setAdapter(adapter);
         adapter.type=1;
-        Button button1 = (Button) findViewById(R.id.date1);
-        Button button2 = (Button) findViewById(R.id.getres);
+        button1 = (Button) findViewById(R.id.date1);
+        button2 = (Button) findViewById(R.id.getres);
+        book = (Button) findViewById(R.id.bookslot);
 
         listView.setVisibility(View.GONE);
         button2.setVisibility(View.GONE);
@@ -112,7 +152,7 @@ public class BookSlot extends AppCompatActivity implements DatePickerDialog.OnDa
                             if (dataSnapshot.hasChild(Integer.toString(i)) && dataSnapshot.child(Integer.toString(i)).child("regno").getValue().toString().equals("--"))
                             {
                                 users.add(new UserModel(false, timing));
-                                flag=1;
+                                flag+=1;
                             }
                         }
                         if (flag==0)
@@ -172,6 +212,45 @@ public class BookSlot extends AppCompatActivity implements DatePickerDialog.OnDa
                 }
                 preSelectedIndex = i;
                 adapter.updateRecords(users);
+            }
+        });
+
+        book.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int year = c.get(Calendar.YEAR);
+                int month = c.get(Calendar.MONTH)+1;
+                int day = c.get(Calendar.DAY_OF_MONTH);
+                String dateString=Integer.toString(day)+"-"+Integer.toString(month)+"-"+Integer.toString(year);
+                String facultyname=tarpstudentloginpinner.getSelectedItem().toString();
+                int l=facultyname.length()-4;
+                String facultyid=facultyname.substring(l);
+                UserModel a;
+                for(int i=0;i<users.size();i++)
+                {
+                    a=users.get(i);
+                    if(a.isSelected==true)
+                    {
+                        int q;
+                        String x=a.getUserName();
+                        q=timetoslot(x);
+                        fDatabaseRoot.child("schedule").child(dateString).child(facultyid).child(Integer.toString(q)).child("regno").setValue(regnumb).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+                                    Toast.makeText(BookSlot.this, "Saved", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(BookSlot.this, Landing.class);
+                                    intent.putExtra("regno", regnumb);
+                                    startActivity(intent);
+                                }
+                                else
+                                {
+                                    Toast.makeText(BookSlot.this, "Error!", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    }
+                }
             }
         });
     }

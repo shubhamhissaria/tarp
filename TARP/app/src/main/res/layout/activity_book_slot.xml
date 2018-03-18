@@ -30,9 +30,9 @@
     <ListView
         android:id="@+id/listview"
         android:layout_width="wrap_content"
-        android:layout_height="375dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_height="325dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/getres" />
 
     <Spinner
         android:id="@+id/teacherspin"
@@ -40,8 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/date1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="12dp"
         android:dropDownWidth="match_parent" />
 
     <Button
@@ -49,9 +48,20 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/listview"
+        android:layout_below="@+id/teacherspin"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp"
         android:text="Find"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
+
+    <Button
+        android:id="@+id/bookslot"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/getres"
+        android:text="Submit"
         android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
 
