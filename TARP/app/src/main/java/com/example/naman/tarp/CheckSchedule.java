@@ -1,18 +1,15 @@
 package com.example.naman.tarp;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,11 +17,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.concurrent.ScheduledExecutorService;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 public class CheckSchedule extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
@@ -51,7 +46,7 @@ public class CheckSchedule extends AppCompatActivity implements DatePickerDialog
         else {
             setFacid(getIntent().getStringExtra("facid"));
         }
-        button1 = (Button) findViewById(R.id.date);
+        button1 = (Button) findViewById(R.id.date1);
         schedule = new Schedule();
         listView=(ListView)findViewById(R.id.listView);
         ref = FirebaseDatabase.getInstance().getReference();

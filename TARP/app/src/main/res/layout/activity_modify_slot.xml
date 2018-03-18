@@ -17,13 +17,14 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
     <Button
-        android:id="@+id/date"
+        android:id="@+id/date1"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/display_date"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp"
+        android:layout_alignBaseline="@+id/display_date"
+        android:layout_alignBottom="@+id/display_date"
+        android:layout_marginEnd="19dp"
+        android:layout_toStartOf="@+id/submitslots"
         android:text="Select Date"
         android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
@@ -39,10 +40,10 @@
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="425dp"
+        android:layout_height="375dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/date"
-        android:layout_marginTop="23dp" />
+        android:layout_below="@+id/button3"
+        android:layout_marginTop="29dp" />
 
     <Button
         android:id="@+id/submitslots"
@@ -53,6 +54,18 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="19dp"
         android:text="Submit"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+        />
+
+    <Button
+        android:id="@+id/button3"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/submitslots"
+        android:layout_below="@+id/date1"
+        android:layout_marginTop="16dp"
+        android:text="Confirm Date"
         android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
 </RelativeLayout>
