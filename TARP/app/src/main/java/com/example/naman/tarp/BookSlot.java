@@ -93,15 +93,15 @@ public class BookSlot extends AppCompatActivity implements DatePickerDialog.OnDa
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ListView listView = (ListView) findViewById(R.id.listview);
-                listView.setVisibility(View.VISIBLE);
                 int year = c.get(Calendar.YEAR);
                 int month = c.get(Calendar.MONTH)+1;
                 int day = c.get(Calendar.DAY_OF_MONTH);
                 String dateString=Integer.toString(day)+"-"+Integer.toString(month)+"-"+Integer.toString(year);
-                String facultyid=tarpstudentloginpinner.getSelectedItem().toString();
+                String facultyname=tarpstudentloginpinner.getSelectedItem().toString();
+                int l=facultyname.length()-4;
+                String facultyid=facultyname.substring(l);
                 ref2=FirebaseDatabase.getInstance().getReference().child("schedule").child(dateString).child(facultyid);
-                Toast.makeText(BookSlot.this, , Toast.LENGTH_SHORT).show();
+//                Toast.makeText(BookSlot.this, dateString+facultyid, Toast.LENGTH_SHORT).show();
                 ref2.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -109,7 +109,7 @@ public class BookSlot extends AppCompatActivity implements DatePickerDialog.OnDa
                         for(int i=1;i<10;i++)
                         {
                             String timing=findtiming(i);
-                            if (dataSnapshot.hasChild(Integer.toString(i)) && !dataSnapshot.child(Integer.toString(i)).getValue().toString().equals("--"))
+                            if (dataSnapshot.hasChild(Integer.toString(i)) && dataSnapshot.child(Integer.toString(i)).child("regno").getValue().toString().equals("--"))
                             {
                                 users.add(new UserModel(false, timing));
                                 flag=1;
@@ -134,12 +134,14 @@ public class BookSlot extends AppCompatActivity implements DatePickerDialog.OnDa
                 // of the iterator returned by dataSnapshot.getChildren() to
                 // initialize the array
                 final List<String> tarpstudentlogin = new ArrayList<String>();
-
+                String q="";
                 for (DataSnapshot tarpstudentloginnapshot: dataSnapshot.getChildren()) {
                     String name = tarpstudentloginnapshot.child("name").getValue(String.class);
                     String regnum = tarpstudentloginnapshot.getKey();
+                    if(!regnum.equals("0001"))
+                        q=name+" - "+regnum;
                     if(regnum.length()==4)
-                        tarpstudentlogin.add(name);
+                        tarpstudentlogin.add(q);
                 }
 
                 tarpstudentloginpinner = (Spinner) findViewById(R.id.teacherspin);
@@ -185,5 +187,7 @@ public class BookSlot extends AppCompatActivity implements DatePickerDialog.OnDa
         Spinner tarpstudentloginpinner = (Spinner) findViewById(R.id.teacherspin);
         button2.setVisibility(View.VISIBLE);
         tarpstudentloginpinner.setVisibility(View.VISIBLE);
+        ListView listView = (ListView) findViewById(R.id.listview);
+        listView.setVisibility(View.VISIBLE);
     }
 }
