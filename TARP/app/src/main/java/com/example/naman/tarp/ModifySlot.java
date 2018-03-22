@@ -127,7 +127,7 @@ public class ModifySlot extends AppCompatActivity implements DatePickerDialog.On
                 ref2.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        for(int i=1;i<10;i++)
+                        for(int i=1;i<=9;i++)
                         {
                             String timing=findtiming(i);
                             if (dataSnapshot.hasChild(Integer.toString(i)))
@@ -152,7 +152,7 @@ public class ModifySlot extends AppCompatActivity implements DatePickerDialog.On
                 int day = c.get(Calendar.DAY_OF_MONTH);
                 String dateString=Integer.toString(day)+"-"+Integer.toString(month)+"-"+Integer.toString(year);
                 UserModel a;
-                for(int i=0;i<10;i++)
+                for(int i=0;i<9;i++)
                 {
                     a=users.get(i);
                     if(a.isSelected==true)
