@@ -38,4 +38,15 @@
         android:layout_marginTop="33dp"
         android:text="Modify Slots"
         android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
+
+    <Button
+        android:id="@+id/logoutbtn"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/modify"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:text="@string/logout"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 </RelativeLayout>

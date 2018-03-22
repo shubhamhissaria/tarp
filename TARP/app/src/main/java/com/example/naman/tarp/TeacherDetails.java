@@ -8,7 +8,7 @@ public class TeacherDetails {
     public TeacherDetails() {
     }
 
-    public TeacherDetails(String nameof, String email, Long empid, Long phno, String cab, String pass) {
+    public TeacherDetails(String nameof, String email, String empid, Long phno, String cab, String pass) {
         this.name = nameof;
         this.email = email;
         this.regno = empid;
@@ -17,8 +17,8 @@ public class TeacherDetails {
         this.pass = pass;
     }
 
-    public String name,email,cabin,pass;
-    public Long phone,regno;
+    public String name,email,cabin,pass,regno;
+    public Long phone;
     public String getName() {
         return name;
     }
@@ -34,11 +34,9 @@ public class TeacherDetails {
         this.email = email;
     }
 
-    public Long getRegno() {
-        return regno;
-    }
+    public String getRegno() {return regno; }
 
-    public void setRegno(Long regno) {
+    public void setRegno(String regno) {
         this.regno = regno;
     }
 

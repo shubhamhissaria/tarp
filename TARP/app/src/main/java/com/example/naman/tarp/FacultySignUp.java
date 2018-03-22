@@ -44,7 +44,7 @@ public class FacultySignUp extends AppCompatActivity {
                 final String password=pass.getText().toString().trim();
                 final String password2=pass2.getText().toString().trim();
                 final String em=email.getText().toString().trim();
-                final String phone=phno.getText().toString().trim();
+                final Long phone=Long.parseLong(phno.getText().toString().trim());
                 final String cabinno=cabin.getText().toString().trim();
                 final String emnum=empidno.getText().toString().trim();
 

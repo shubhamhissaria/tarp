@@ -20,12 +20,14 @@ public class FacultyHome extends AppCompatActivity {
     public void setFacid(String x){
         facid=x;
     }
+    Button button3, logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faculty_home);
-        Button button3 = (Button)findViewById(R.id.modify);
+        button3 = (Button)findViewById(R.id.modify);
+        logout = (Button) findViewById(R.id.logoutbtn);
         if (getIntent().getStringExtra("regno")== null) {
             setFacid("0000");
         } else {
@@ -42,6 +44,14 @@ public class FacultyHome extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 openactivity_check_schedule();
+            }
+        });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FacultyHome.this, LoginActivity.class);//change to login page
+                startActivity(intent);
+                finish();
             }
         });
 
